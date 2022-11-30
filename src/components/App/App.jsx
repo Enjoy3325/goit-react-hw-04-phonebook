@@ -21,11 +21,10 @@ export const App = () => {
       setContacts(parseContacts);
     }
   }, []);
-  useEffect(prevState => {
-    if (contacts !== prevState) {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    }
-  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const getNewContact = dataValue => {
     if (checkContacts(dataValue.name)) {
