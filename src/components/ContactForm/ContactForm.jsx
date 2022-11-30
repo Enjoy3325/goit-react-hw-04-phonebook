@@ -22,6 +22,8 @@ export const ContactForm = props => {
       case 'number':
         setNumber(e.target.value);
         break;
+      default:
+        break;
     }
   };
 
