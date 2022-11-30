@@ -30,11 +30,13 @@ export const App = () => {
     if (checkContacts(dataValue.name)) {
       return alert(`${dataValue.name} is already in contacts`);
     }
-    setContacts(contacts => [...contacts, { id: nanoid(), ...dataValue }]);
+    setContacts(prevState => [...prevState, { id: nanoid(), ...dataValue }]);
   };
 
-  const checkContacts = contact => {
-    return contacts.find(el => el.name.toLowerCase() === contact.toLowerCase());
+  const checkContacts = e => {
+    return contacts.find(
+      contact => contact.name.toLowerCase() === e.toLowerCase()
+    );
   };
 
   const ChangeFilter = e => {
